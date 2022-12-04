@@ -1,3 +1,6 @@
+
+#TC ID 521: ACTUALIZACIÓN DE CARRITO EN TIEMPO REAL
+
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -28,12 +31,23 @@ contra.send_keys("agostina11")
 time.sleep(1)
 contra.send_keys(Keys.ENTER)
 time.sleep(3)
-buscador=driver.find_element(By.XPATH, '/html/body/header[1]/div[2]/div/div[2]/div/form/input')
-buscador.click()
-buscador.send_keys("Tecnología")
-boton=driver.find_element(By.XPATH, '/html/body/header[2]/div[1]/div[4]/form/button')
-boton.click()
 
+producto1=driver.find_element(By.XPATH, '/html/body/div[7]/div/div[2]/div/div[1]/div[7]/li/div/div[1]/div/a[2]')
+#Esta parte se ve media feita
+driver.execute_script("arguments[0].scrollIntoView(true);",producto1)
+time.sleep(2)
+producto1.click()
+time.sleep(2)
+addButton=driver.find_element(By.XPATH, '/html/body/div[7]/div/div[2]/div/div[1]/div[7]/li/div/div[1]/div/a[2]')
+addButton.click()
+time.sleep(1)
+cant=driver.find_element(By.XPATH, '/html/body/div[12]/div[2]/div[4]/div/form/div[4]/div/button[2]')
+for i in range(2):
+    cant.click()
+    time.sleep(1)
 
+addButton=driver.find_element(By.XPATH, '/html/body/div[12]/div[2]/div[4]/div/form/div[4]/button')
+addButton.click()
+time.sleep(2)
 
 driver.close()

@@ -4,6 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 import time
 import pandas as pd
+from selenium.webdriver.common.action_chains import ActionChains
 
 # opciones del mavegador
 options2=webdriver.EdgeOptions()
@@ -14,5 +15,10 @@ driver=webdriver.Edge(executable_path="C:/Users/agosl/Downloads/edgedriver_win64
 
 driver.get("https://shop.thonet-vander.com/")
 time.sleep(3)
+ActionChains(driver).send_keys(Keys.TAB * 4).perform()
+time.sleep(2)
+ActionChains(driver).send_keys(Keys.ENTER)
+time.sleep(2)
+
 
 driver.close()
