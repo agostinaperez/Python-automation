@@ -6,7 +6,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 import time
-import pandas as pd
+
 
 # opciones del mavegador
 options2=webdriver.EdgeOptions()
@@ -16,7 +16,7 @@ options2.add_argument('--start-maximized')
 driver=webdriver.Edge(executable_path="C:/Users/agosl/Downloads/edgedriver_win64/msedgedriver.exe", options=options2)
 
 driver.get("https://shop.thonet-vander.com/")
-time.sleep(3)
+time.sleep(2)
 login=driver.find_element(By.XPATH, '/html/body/header[1]/div[2]/div/div[3]/div/li[2]/a')
 login.click()
 time.sleep(1)
@@ -32,22 +32,16 @@ time.sleep(1)
 contra.send_keys(Keys.ENTER)
 time.sleep(3)
 
-producto1=driver.find_element(By.XPATH, '/html/body/div[7]/div/div[2]/div/div[1]/div[7]/li/div/div[1]/div/a[2]')
-#Esta parte se ve media feita
-driver.execute_script("arguments[0].scrollIntoView(true);",producto1)
-time.sleep(2)
-producto1.click()
-time.sleep(2)
-addButton=driver.find_element(By.XPATH, '/html/body/div[7]/div/div[2]/div/div[1]/div[7]/li/div/div[1]/div/a[2]')
-addButton.click()
-time.sleep(1)
-cant=driver.find_element(By.XPATH, '/html/body/div[12]/div[2]/div[4]/div/form/div[4]/div/button[2]')
-for i in range(2):
-    cant.click()
+btn=driver.find_element(By.XPATH, '/html/body/div[7]/div/div[2]/div/div[1]/div[6]/li/div/div[1]/a/h2')
+btn.click()
+time.sleep(1.5)
+add=driver.find_element(By.XPATH, '/html/body/div[5]/div[1]/div[2]/div[2]/div[1]/form/div/div[1]/div/button[2]')
+for i in range(4):
+    add.click()
     time.sleep(1)
-
-addButton=driver.find_element(By.XPATH, '/html/body/div[12]/div[2]/div[4]/div/form/div[4]/button')
-addButton.click()
-time.sleep(2)
-
+#no me deja clickear esto porque "otro elemento recibiría el click"
+cart=driver.find_element(By.XPATH, '/html/body/div[5]/div[1]/div[2]/div[2]/div[1]/form/div/div[3]/button[2]').click()
+time.sleep(1)
+seguir=driver.find_element(By.XPATH, '/html/body/div[2]/div/div[2]/div[3]/div[2]/a').click()
+time.sleep(1)
 driver.close()
