@@ -33,6 +33,7 @@ contra.send_keys("agostina11")
 time.sleep(1)
 contra.send_keys(Keys.ENTER)
 time.sleep(3)
+print("login successful")
 
 btn=driver.find_element(By.XPATH, '/html/body/div[7]/div/div[2]/div/div[1]/div[6]/li/div/div[1]/a/h2')
 btn.click()
@@ -46,12 +47,13 @@ cart=driver.find_element(By.XPATH, '/html/body/div[5]/div[1]/div[2]/div[2]/div[1
 time.sleep(5)
 seguir=driver.find_element(By.XPATH, '/html/body/div[2]/div/div[2]/div[3]/div[2]').click()
 time.sleep(1)
+print("Added to chart successfully")
 logo=driver.find_element(By.XPATH, '/html/body/header[1]/div[2]/div/div[1]/div').click()
 time.sleep(2)
 carrito=driver.find_element(By.XPATH, "/html/body/header[1]/div[2]/div/div[3]/div/li[2]/a").click()
 time.sleep(2)
 #no me toma el xpath
-delete=driver.find_element(By.ID, "eliminar_283258").click()
+delete=driver.find_element(By.XPATH, "/html/body/div[1]/div/div[2]/div[1]/div/div[4]/a").click()
 time.sleep(2)
 print("test case pass")
 

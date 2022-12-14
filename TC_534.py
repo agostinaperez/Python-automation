@@ -33,6 +33,7 @@ for i in range(2):
     time.sleep(1)
     contra.send_keys(Keys.ENTER)
     time.sleep(3)
+    print("login successful")
     if(i==0):
         btn=driver.find_element(By.XPATH, '/html/body/div[7]/div/div[2]/div/div[1]/div[6]/li/div/div[1]/a/h2')
         btn.click()
@@ -41,11 +42,11 @@ for i in range(2):
         for i in range(4):
             add.click()
             time.sleep(1)
-        #no me deja clickear esto porque "otro elemento recibiría el click"
         cart=driver.find_element(By.XPATH, '/html/body/div[5]/div[1]/div[2]/div[2]/div[1]/form/div/div[3]/button[2]').click()
         time.sleep(5)
         seguir=driver.find_element(By.XPATH, '/html/body/div[2]/div/div[2]/div[3]/div[2]').click()
         time.sleep(1)
+        print("Added to chart successfully")
         logo=driver.find_element(By.XPATH, '/html/body/header[1]/div[2]/div/div[1]/div').click()
         time.sleep(2)
         data=driver.find_element(By.XPATH, '/html/body/header[1]/div[2]/div/div[3]/div/li[1]/a[1]').click()
@@ -56,7 +57,8 @@ for i in range(2):
         carrito=driver.find_element(By.XPATH, "/html/body/header[1]/div[2]/div/div[3]/div/li[2]/a").click()
         time.sleep(5)
         number=driver.find_element(By.XPATH, "/html/body/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div/input")
-        if(number.value_of_css_property==5):
+       #no me toma esto
+        if(number.get_property('value')==5 or number.get_dom_attribute("value")==5):
             print("test case pass")
 
         #<input type="number" class="js-cart-quantity-input cart-quantity-input count" id="cantidad_283258" value="21" 
