@@ -59,8 +59,7 @@ for i in range(2):
         carrito=driver.find_element(By.XPATH, "/html/body/header[1]/div[2]/div/div[3]/div/li[2]/a").click()
         time.sleep(5)
         number=driver.find_element(By.XPATH, "/html/body/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div/input")
-       #no me toma esto
-        value=number.get_attribute('value')
+        value=int(number.get_attribute('value'))
         if(value==5):
             print("La cantidad de elementos ingresada coincide con la de antes de cerrar sesion")
             print("test case pass")

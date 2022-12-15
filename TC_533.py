@@ -58,15 +58,11 @@ for i in range(2):
     else:
         carrito=driver.find_element(By.XPATH, "/html/body/header[1]/div[2]/div/div[3]/div/li[2]/a").click()
         time.sleep(5)
-        number=driver.find_element(By.XPATH, "/html/body/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div/input")
-       #no me toma esto
-
-       #CAMBIAR ACÁ EL VALUE CON EL ID O NAME
-        if(number.get_property('value')==5 or number.get_dom_attribute("value")==5):
+        color=driver.find_element(By.XPATH, '/html/body/div[1]/div/div[2]/div[1]/div/div[2]/div[1]/small[1]')
+        c=color.get_attribute('innerHTML')
+        if(c=='Colores:Blanco'):
+            print("Los colores coinciden con los ingresados previamente")
             print("test case pass")
 
-        
-#titulo del elemento:
-#/html/body/div[1]/div/div[2]/div[1]/div/div[2]/div[1]/a
 
 driver.close()
