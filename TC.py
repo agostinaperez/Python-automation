@@ -1,6 +1,6 @@
-#TC 534: MANTENIMINETO DE CANTIDAD DE ELEMENTOS DEL CARRITO LUEGO DE CERRAR SESIÓN
 
 
+#TC : MANTENIMIENTO DE MODELO DE ELEMENTO DEL CARRITO LUEGO DE CERRAR SESIÓN
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -60,16 +60,13 @@ for i in range(2):
         time.sleep(5)
         number=driver.find_element(By.XPATH, "/html/body/div[1]/div/div[2]/div[1]/div/div[2]/div[2]/div/input")
        #no me toma esto
-        value=number.get_attribute('value')
-        if(value==5):
-            print("La cantidad de elementos ingresada coincide con la de antes de cerrar sesion")
+
+       #CAMBIAR ACÁ EL VALUE CON EL ID O NAME
+        if(number.get_property('value')==5 or number.get_dom_attribute("value")==5):
             print("test case pass")
-        
-        delete=driver.find_element(By.XPATH, "/html/body/div[1]/div/div[2]/div[1]/div/div[4]/a").click()
-        time.sleep(2)
 
         
-        
-
+#titulo del elemento:
+#/html/body/div[1]/div/div[2]/div[1]/div/div[2]/div[1]/a
 
 driver.close()

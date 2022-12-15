@@ -52,10 +52,17 @@ logo=driver.find_element(By.XPATH, '/html/body/header[1]/div[2]/div/div[1]/div')
 time.sleep(2)
 carrito=driver.find_element(By.XPATH, "/html/body/header[1]/div[2]/div/div[3]/div/li[2]/a").click()
 time.sleep(2)
-#no me toma el xpath
 delete=driver.find_element(By.XPATH, "/html/body/div[1]/div/div[2]/div[1]/div/div[4]/a").click()
 time.sleep(2)
-print("test case pass")
 
-#class="js-cart-delete-btn cart-btn-delete pull-right" id="eliminar_283258"
+#SI EL DRIVER ENCUENTRA ESTE ELEMENTO, SIGNIFICA QUE EL CARRITO ESTÁ VACÍO
+empty=driver.find_element(By.XPATH, '/html/body/div[1]/div/div[2]')
+
+#<div class="cart-empty text-center" style="display:none;">
+muestra=empty.get_attribute('style')
+if(muestra!="display:none"):
+    print("test case pass")
+
+
+
 driver.close()
